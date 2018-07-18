@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/toolbar_layout"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="目前测试阶段，界面还有待参考。。。。。"
+        android:gravity="center"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:id="@+id/btn_WeiXin_PickImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="仿微信朋友圈选择图片"/>
+
+    <Button
+        android:id="@+id/btn_Other_PickImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="其他第三方库选择图片"/>
+
+</LinearLayout>

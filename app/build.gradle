@@ -1,0 +1,172 @@
+apply plugin: 'com.android.application'
+// 添加插件
+apply plugin: 'org.greenrobot.greendao'
+apply from: 'tinker-support.gradle'
+
+
+android {
+    signingConfigs {
+        release {
+            keyAlias 'EasyReadingAndroidMVP'
+            keyPassword '15728006854'
+            storeFile file('E:/CniaowoProject/EasyReadingAndroidMVP/EasyReadingAndroidMVP.jks')
+            storePassword '15728006854'
+        }
+    }
+    compileSdkVersion 26
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    defaultConfig {
+        applicationId "com.liux.easyreadingandroidmvp"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        //使用矢量图配置
+        vectorDrawables.useSupportLibrary = true
+        // 分包配置
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
+            abiFilters "armeabi", "armeabi-v7a", "x86", "x86_64"
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug{
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+        }
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+    //recommend
+    dexOptions {
+        jumboMode = true
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    compile 'com.android.support:support-v4:26.1.0'
+    compile 'com.android.support:cardview-v7:26.1.0'
+    compile 'com.android.support:design:26.1.0'
+
+    //分包
+    compile 'com.android.support:multidex:1.0.1'
+
+    //Logger日志
+    compile 'com.orhanobut:logger:2.1.1'
+
+    //butterknift
+    compile 'com.jakewharton:butterknife:8.6.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
+
+    //Glide
+    compile 'com.github.bumptech.glide:glide:4.0.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0'
+
+    //RecyclerView
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.27'
+    compile 'com.android.support:recyclerview-v7:26.1.0'
+
+    //设置圆角图片 以及其他样式
+    compile 'com.makeramen:roundedimageview:2.3.0'
+    compile project(':module')
+
+    //mobApi接口sdk
+    compile project(':MobAPI')
+
+    //Gson
+
+    //    compile 'com.google.code.gson:gson:2.7'
+
+    //eventbus
+    compile 'org.greenrobot:eventbus:3.0.0'
+
+    //    //侧滑返回
+    compile 'me.imid.swipebacklayout.lib:library:1.1.0'
+
+    //    //百度地图SDK
+    compile files('libs/BaiduLBS_Android.jar')
+
+    //
+
+    //    //下拉刷新组件
+
+    //    compile project(':MaterialRefreshLayout')
+
+    //发现bug请加群提出，并切换 1.0.3 版本
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-1'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4-1'
+
+    //没有使用特殊Header，可以不加这行
+    compile 'jp.wasabeef:recyclerview-animators:2.2.6'
+
+    //加载时候的动画界面
+    compile 'com.github.zzz40500:android-shapeLoadingView:1.0.3.2'
+
+    //Androd调试神器Stetho
+    compile 'com.facebook.stetho:stetho-okhttp3:1.4.2'
+
+    //有米广告sdk
+    compile name: 'YoumiSdk_v7.5.0_2017-07-18', ext: 'aar'
+
+    //retrofit2.0 + rxjava2
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:retrofit-converters:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    compile 'com.squareup.okhttp3:okhttp:3.8.0'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.1'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
+    //easypermissions权限库（google）
+    compile 'pub.devrel:easypermissions:1.0.1'
+
+    //greenDao数据库
+    compile 'org.greenrobot:greendao:3.2.0'
+
+    //leakcanary内存泄漏检测
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3'
+
+    //Android官方底部导航
+    compile 'com.ashokvarma.android:bottom-navigation-bar:1.3.0'
+
+    //仿微信朋友圈图片选择器
+    compile 'com.lzy.widget:imagepicker:0.6.1'
+
+    //腾讯bugly检测 和 热更新
+    // 其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.2.0
+    //    compile 'com.tencent.bugly:crashreport:2.6.6'
+    //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
+    compile 'com.tencent.bugly:nativecrashreport:3.3.1'
+    //其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
+    compile 'com.tencent.bugly:crashreport_upgrade:1.3.4'
+
+    implementation files('libs/tbs_sdk_thirdapp_v3.6.0.1249_43610_sharewithdownload_withoutGame_obfs_20180608_114954.jar')
+}
