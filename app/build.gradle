@@ -23,8 +23,8 @@ android {
         applicationId "com.liux.easyreadingandroidmvp"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.0.3"
         //使用矢量图配置
         vectorDrawables.useSupportLibrary = true
         // 分包配置

@@ -13,6 +13,9 @@ import android.util.Log;
 
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
+import com.liux.easyreadingandroidmvp.greenDao.GreenDaoManager;
+import com.liux.easyreadingandroidmvp.ui.MainActivity;
+import com.liux.easyreadingandroidmvp.utils.Util;
 import com.mob.MobApplication;
 import com.mob.MobSDK;
 import com.orhanobut.logger.AndroidLogAdapter;
@@ -52,6 +55,7 @@ public class EasyReadApplication extends DefaultApplicationLike {
         //logger2.1.1版本必需添加的适配器，否则打印不出日志信息，设置在这里供整个APP调用
         Logger.addLogAdapter(new AndroidLogAdapter());
 
+        Util.init(context);
         MobSDK.init(getApplication());
         //在SDK各功能组件使用之前都需要调用 因此我们建议该方法放在Application的初始化方法中
         SDKInitializer.initialize(getApplication());
@@ -59,7 +63,7 @@ public class EasyReadApplication extends DefaultApplicationLike {
         //包括BD09LL和GCJ02两种坐标，默认是BD09LL坐标。
         SDKInitializer.setCoordType(CoordType.BD09LL);
         //初始化greendao 配置数据库
-//        GreenDaoManager.getInstance();
+        GreenDaoManager.getInstance();
         /*
         第三个参数为SDK调试模式开关，调试模式的行为特性如下：
         输出详细的Bugly SDK的Log；
@@ -76,9 +80,15 @@ public class EasyReadApplication extends DefaultApplicationLike {
         strategy.setUploadProcess(processName == null || processName.equals(packageName));
         // 初始化Bugly
 //        CrashReport.initCrashReport(getApplication(), "11bf64c034", true, strategy);
+        /**
+         * 只允许在MainActivity上显示更新弹窗，其他activity上不显示弹窗;
+         * 不设置会默认所有activity都可以显示弹窗;
+         */
+        Beta.canShowUpgradeActs.add(MainActivity.class);
+
         // 这里实现SDK初始化，appId替换成你的在Bugly平台申请的appId
         // 调试时，将第三个参数改为true
-        Bugly.init(getApplication(), "11bf64c034", true, strategy);
+        Bugly.init(getApplication(), "11bf64c034", false);
         initX5WebView();
     }
 

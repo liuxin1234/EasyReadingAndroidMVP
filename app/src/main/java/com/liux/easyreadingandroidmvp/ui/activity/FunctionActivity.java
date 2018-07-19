@@ -14,8 +14,17 @@ import com.liux.easyreadingandroidmvp.R;
 import com.liux.easyreadingandroidmvp.adapter.MoreFunctionAdapter;
 import com.liux.easyreadingandroidmvp.base.BaseSwipeBackActivity;
 import com.liux.easyreadingandroidmvp.customView.ToolbarHelper;
+import com.liux.easyreadingandroidmvp.ui.activity.moreFuntion.AirQualityActivity;
+import com.liux.easyreadingandroidmvp.ui.activity.moreFuntion.BaiduMapActivity;
+import com.liux.easyreadingandroidmvp.ui.activity.moreFuntion.CarAPIActivity;
+import com.liux.easyreadingandroidmvp.ui.activity.moreFuntion.DictionaryAPIActivity;
 import com.liux.easyreadingandroidmvp.ui.activity.moreFuntion.FuLiActivity;
+import com.liux.easyreadingandroidmvp.ui.activity.moreFuntion.GreenDaoTestActivity;
+import com.liux.easyreadingandroidmvp.ui.activity.moreFuntion.HistroyTodayActivity;
+import com.liux.easyreadingandroidmvp.ui.activity.moreFuntion.SmartRefreshLayoutActivity;
 import com.liux.easyreadingandroidmvp.ui.activity.moreFuntion.WeatherActivity;
+import com.liux.easyreadingandroidmvp.ui.activity.moreFuntion.WeiXinFriendActivity;
+import com.liux.easyreadingandroidmvp.ui.activity.moreFuntion.X5VideoActivity;
 import com.liux.easyreadingandroidmvp.utils.BaiduLocation;
 import com.liux.easyreadingandroidmvp.utils.FunctionDataUtils;
 import com.liux.easyreadingandroidmvp.utils.GsonUtils;
@@ -90,55 +99,60 @@ public class FunctionActivity extends BaseSwipeBackActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent();
                 switch (position){
-//                    case 0:
-//                        //历史上的今天
-//                        intent.setClass(FunctionActivity.this,HistroyTodayActivity.class);
-//                        startActivity(intent);
-//                        break;
+                    case 0:
+                        //历史上的今天
+                        intent.setClass(FunctionActivity.this,HistroyTodayActivity.class);
+                        startActivity(intent);
+                        break;
                     case 1:
                         //天气预报
                         getWeatherData(intent);
                         break;
-//                    case 2:
-//                        //百度地图
-//                        intent.setClass(FunctionActivity.this,BaiduMapActivity.class);
-//                        startActivity(intent);
-//                        break;
-//                    case 3:
-//                        //空气质量
-//                        intent.setClass(FunctionActivity.this,AirQualityActivity.class);
-//                        startActivity(intent);
-//                        break;
-//                    case 4:
-//                        //新华字典
-//                        intent.setClass(FunctionActivity.this,DictionaryAPIActivity.class);
-//                        startActivity(intent);
-//                        break;
-//                    case 5:
-//                        //汽车信息
-//                        intent.setClass(FunctionActivity.this,CarAPIActivity.class);
-//                        startActivity(intent);
-//                        break;
-//                    case 6:
-//                        //智能刷新
-//                        intent.setClass(FunctionActivity.this,SmartRefreshLayoutActivity.class);
-//                        startActivity(intent);
-//                        break;
+                    case 2:
+                        //百度地图
+                        intent.setClass(FunctionActivity.this,BaiduMapActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 3:
+                        //空气质量
+                        intent.setClass(FunctionActivity.this,AirQualityActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 4:
+                        //新华字典
+                        intent.setClass(FunctionActivity.this,DictionaryAPIActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 5:
+                        //汽车信息
+                        intent.setClass(FunctionActivity.this,CarAPIActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 6:
+                        //智能刷新
+                        intent.setClass(FunctionActivity.this,SmartRefreshLayoutActivity.class);
+                        startActivity(intent);
+                        break;
                     case 7:
                         //美图福利
                         intent.setClass(FunctionActivity.this,FuLiActivity.class);
                         startActivity(intent);
                         break;
-//                    case 8:
-//                        //greenDao
-//                        intent.setClass(FunctionActivity.this,GreenDaoTestActivity.class);
-//                        startActivity(intent);
-//                        break;
-//                    case 9:
-//                        //仿微信朋友圈
-//                        intent.setClass(FunctionActivity.this,WeiXinFriendActivity.class);
-//                        startActivity(intent);
-//                        break;
+                    case 8:
+                        //greenDao
+                        intent.setClass(FunctionActivity.this,GreenDaoTestActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 9:
+                        //仿微信朋友圈
+                        intent.setClass(FunctionActivity.this,WeiXinFriendActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 10:
+                        //腾讯X5播放器
+                        intent.setClass(FunctionActivity.this, X5VideoActivity.class);
+                        startActivity(intent);
+                        break;
                     default:
                         break;
                 }

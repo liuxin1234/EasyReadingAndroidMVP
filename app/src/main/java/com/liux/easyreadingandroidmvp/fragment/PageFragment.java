@@ -137,11 +137,6 @@ public class PageFragment extends BaseFragment implements FgPageView {
                 cid = bean.getCid();
             }
             mFgPagePresenter.loadMobApiData(cid,pageIndex,PAGE_SIZE);
-
-//            try {
-//            }catch (Exception e){
-//                e.printStackTrace();
-//            }
         }
     }
 

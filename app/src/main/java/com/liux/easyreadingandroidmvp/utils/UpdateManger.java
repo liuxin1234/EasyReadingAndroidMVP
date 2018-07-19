@@ -16,11 +16,11 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.liux.nbtzxm2016android.BuildConfig;
-import com.liux.nbtzxm2016android.R;
-import com.liux.nbtzxm2016android.TzxmApplication;
-import com.liux.nbtzxm2016android.https.SafeHostnameVerifier;
-import com.liux.nbtzxm2016android.https.SslContextFactory;
+
+import com.liux.easyreadingandroidmvp.R;
+import com.liux.easyreadingandroidmvp.application.EasyReadApplication;
+import com.liux.easyreadingandroidmvp.https.SafeHostnameVerifier;
+import com.liux.easyreadingandroidmvp.https.SslContextFactory;
 import com.orhanobut.logger.Logger;
 
 import java.io.File;
@@ -50,9 +50,9 @@ public class UpdateManger {
     private String apkUrl = "";
     private Dialog noticeDialog;// 提示有软件更新的对话框
     private Dialog downloadDialog;// 下载对话框
-    private static final String savePageName = TzxmApplication.getContext().getPackageName();
+    private static final String savePageName = EasyReadApplication.getContext().getPackageName();
     private static final String savePath = Environment.getExternalStorageDirectory() +"/"+savePageName;// 保存apk的文件夹
-    private static final String saveFileName = savePath + "/NbTzxm.apk";
+    private static final String saveFileName = savePath + "/EasyReadingAndroid.apk";
     // 进度条与通知UI刷新的handler和msg常量
     private ProgressBar mProgress;
     private TextView mtextview;
@@ -148,7 +148,7 @@ public class UpdateManger {
             return;
         }
         try {
-            Uri contentUri = FileProvider.getUriForFile(mContext, TzxmApplication.getContext().getPackageName() + ".fileProvider", apkfile);
+            Uri contentUri = FileProvider.getUriForFile(mContext, EasyReadApplication.getContext().getPackageName() + ".fileProvider", apkfile);
             Logger.e(contentUri.getPath()+"\n"+contentUri.toString());
             Intent i = new Intent(Intent.ACTION_VIEW);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); //在下载更新之后,并没有打开安装成功界面,闪退情况,想了许久,从新开一个任务栈
@@ -173,11 +173,13 @@ public class UpdateManger {
             try {
                 url = new URL(apkUrl);
                 Logger.v("download", apkUrl);
-                InputStream certificate = Util.getContext().getResources().openRawResource(Util.getRawResource(BuildConfig.cer));
+                //这里是验证https的证书验证
+                InputStream certificate = Util.getContext().getResources().openRawResource(Util.getRawResource("这里是htps证书的名字"));
                 SSLSocketFactory sslSocketFactory = SslContextFactory.getSSLSocketFactoryForOneWay(certificate);
                 HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
                 conn.setSSLSocketFactory(sslSocketFactory);
                 conn.setHostnameVerifier(new SafeHostnameVerifier());
+                //这里是http的请求 如果没有证书验证 可以还下面这个
 //                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
                 conn.setConnectTimeout(15000);

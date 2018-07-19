@@ -29,6 +29,7 @@ public class FunctionDataUtils {
         beanList.add(new FunctionBean(R.color.mask_tags_4,R.drawable.icon_shoucang,"美图福利"));
         beanList.add(new FunctionBean(R.color.mask_tags_5,R.drawable.icon_shoucang,"GreenDao"));
         beanList.add(new FunctionBean(R.color.mask_tags_6,R.drawable.icon_shoucang,"仿微信朋友圈"));
+        beanList.add(new FunctionBean(R.color.mask_tags_7,R.drawable.icon_shoucang,"腾讯X5播放器"));
         return beanList;
     }
 }

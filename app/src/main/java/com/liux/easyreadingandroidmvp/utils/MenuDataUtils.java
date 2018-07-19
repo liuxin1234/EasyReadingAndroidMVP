@@ -25,6 +25,7 @@ public class MenuDataUtils {
         menus.add(new LeftItemMenu(R.drawable.icon_shoucang,"我的收藏"));
         menus.add(new LeftItemMenu(R.drawable.icon_yijianfankui,"意见反馈"));
         menus.add(new LeftItemMenu(R.drawable.icon_shezhi,"设置"));
+        menus.add(new LeftItemMenu(R.drawable.icon_about_we,"关于我们"));
         menus.add(new LeftItemMenu(R.drawable.icon_tuichu,"退出登录"));
         return  menus;
     }

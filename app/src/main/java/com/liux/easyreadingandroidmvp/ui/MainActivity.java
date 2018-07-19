@@ -16,15 +16,20 @@ import com.liux.easyreadingandroidmvp.base.BaseActivity;
 import com.liux.easyreadingandroidmvp.common.db.ACache;
 import com.liux.easyreadingandroidmvp.customView.ToolbarHelper;
 import com.liux.easyreadingandroidmvp.eventBus.LoginEvent;
+import com.liux.easyreadingandroidmvp.ui.activity.AboutWeActivity;
 import com.liux.easyreadingandroidmvp.ui.activity.FunctionActivity;
 import com.liux.easyreadingandroidmvp.ui.activity.LoginActivity;
 import com.liux.easyreadingandroidmvp.utils.MenuDataUtils;
+import com.liux.easyreadingandroidmvp.utils.ToastUtil;
 import com.liux.easyreadingandroidmvp.widget.DragLayout;
 import com.nineoldandroids.view.ViewHelper;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -43,6 +48,8 @@ public class MainActivity extends BaseActivity  {
     TextView tvUserName;
 
     private ACache mACache;
+
+    private boolean mBackKeyPressed = false;
 
 
     public DragLayout getDragLayout() {
@@ -84,16 +91,30 @@ public class MainActivity extends BaseActivity  {
         lvLeftMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this, "点击了：" + MenuDataUtils.getItemMenus().get(position).getTitle(), Toast.LENGTH_SHORT).show();
-                if ("退出登录".equals(MenuDataUtils.getItemMenus().get(position).getTitle())) {
-                    mACache.put("userName","");
-                    mACache.put("passWord","");
-                    mACache.put("token","");
-                    mACache.put("uid","");
-                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                    finish();
+                String title = MenuDataUtils.getItemMenus().get(position).getTitle();
+                Intent intent = new Intent();
+                switch (title){
+                    case "退出登录":
+                        mACache.put("userName","");
+                        mACache.put("passWord","");
+                        mACache.put("token","");
+                        mACache.put("uid","");
+                        intent.setClass(MainActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                        break;
+                    case "关于我们":
+                        intent.setClass(MainActivity.this, AboutWeActivity.class);
+                        startActivity(intent);
+                        break;
+                    default:
+                        Toast.makeText(MainActivity.this, "点击了：" + MenuDataUtils.getItemMenus().get(position).getTitle() + "，该功能还在开发中！", Toast.LENGTH_SHORT).show();
+
+                        break;
                 }
+//                if ("退出登录".equals(MenuDataUtils.getItemMenus().get(position).getTitle())) {
+//
+//                }
             }
         });
     }
@@ -164,5 +185,19 @@ public class MainActivity extends BaseActivity  {
     }
 
 
-
+    @Override
+    public void onBackPressed() {
+        if (!mBackKeyPressed) {
+            ToastUtil.showToast(getApplicationContext(),"再按一次退出程序");
+            mBackKeyPressed = true;
+            new Timer().schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    mBackKeyPressed = false;
+                }
+            },2000);
+        }else {
+            this.finish();
+        }
+    }
 }
