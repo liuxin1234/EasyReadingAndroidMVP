@@ -1,17 +1,22 @@
 package com.liux.easyreadingandroidmvp.ui.activity.moreFuntion;
 
-import android.os.Bundle;
+import android.app.ActivityOptions;
+import android.content.Intent;
+import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.liux.easyreadingandroidmvp.R;
 import com.liux.easyreadingandroidmvp.adapter.FuLiAdapter;
 import com.liux.easyreadingandroidmvp.base.BaseSwipeBackActivity;
+import com.liux.easyreadingandroidmvp.common.Contants;
 import com.liux.easyreadingandroidmvp.customView.ToolbarHelper;
-import com.liux.easyreadingandroidmvp.httpNetWork.RetrofitService;
 import com.liux.easyreadingandroidmvp.presenter.AcFuLiPresenter;
 import com.liux.easyreadingandroidmvp.presenter.impl.AcFuLiPresenterImpl;
 import com.liux.easyreadingandroidmvp.utils.ToastUtil;
@@ -25,7 +30,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -100,7 +104,17 @@ public class FuLiActivity extends BaseSwipeBackActivity implements AcFuLiView {
         mFuLiAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                ToastUtil.showToast(FuLiActivity.this, "" + position);
+                Intent intent = new Intent(FuLiActivity.this, FuliDetailActivity.class);
+                intent.putExtra(Contants.FULI_DETAIL, mList.get(position).getUrl());
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    ImageView imageView = (ImageView) view.findViewById(R.id.image_id);
+                    startActivity(intent, ActivityOptions.
+                            makeSceneTransitionAnimation(FuLiActivity.this, imageView, getString(R.string.transition_photos)).toBundle());
+                } else {
+                    ActivityOptionsCompat options = ActivityOptionsCompat
+                            .makeScaleUpAnimation(view, view.getWidth() / 2, view.getHeight() / 2, 0, 0);
+                    ActivityCompat.startActivity(FuLiActivity.this, intent, options.toBundle());
+                }
             }
         });
     }

@@ -27,4 +27,10 @@
         android:layout_height="wrap_content"
         android:text="其他第三方库选择图片"/>
 
+    <Button
+        android:id="@+id/btn_Coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Coordinator界面"/>
+
 </LinearLayout>

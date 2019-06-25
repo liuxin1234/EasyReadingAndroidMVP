@@ -1,39 +1,39 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:1:1-12:12
-INJECTED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:1:1-12:12
-INJECTED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:1:1-12:12
-INJECTED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:1:1-12:12
-INJECTED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:1:1-12:12
-INJECTED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:1:1-12:12
-INJECTED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:1:1-12:12
+ADDED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:1:1-12:12
+INJECTED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:1:1-12:12
+INJECTED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:1:1-12:12
+INJECTED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:1:1-12:12
+INJECTED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:1:1-12:12
+INJECTED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:1:1-12:12
+INJECTED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:1:1-12:12
 	package
-		ADDED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:2:5-29
-		INJECTED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml
-		INJECTED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml
+		ADDED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:2:5-29
+		INJECTED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml
+		INJECTED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml
 	android:versionName
-		ADDED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:4:5-30
-		INJECTED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml
-		INJECTED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml
+		ADDED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:4:5-30
+		INJECTED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml
+		INJECTED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml
 	xmlns:android
-		ADDED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:1:11-69
+		ADDED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:1:11-69
 	android:versionCode
-		ADDED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:3:5-28
-		INJECTED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml
-		INJECTED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml
+		ADDED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:3:5-28
+		INJECTED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml
+		INJECTED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml
 uses-sdk
-ADDED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:6:5-8:41
-INJECTED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:6:5-8:41
-INJECTED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:6:5-8:41
-INJECTED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:6:5-8:41
-INJECTED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:6:5-8:41
+ADDED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:6:5-8:41
+INJECTED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:6:5-8:41
+INJECTED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:6:5-8:41
+INJECTED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:6:5-8:41
+INJECTED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:6:5-8:41
 	android:targetSdkVersion
-		ADDED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:8:9-38
-		INJECTED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml
-		INJECTED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml
+		ADDED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:8:9-38
+		INJECTED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml
+		INJECTED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml
 	android:minSdkVersion
-		ADDED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:7:9-34
-		INJECTED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml
-		INJECTED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml
+		ADDED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:7:9-34
+		INJECTED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml
+		INJECTED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml
 application
-ADDED from E:\CniaowoProject\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:10:5-19
+ADDED from E:\androidProject\MyGithub\EasyReadingAndroidMVP\MobAPI\AndroidManifest.xml:10:5-19

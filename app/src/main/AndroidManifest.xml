@@ -218,6 +218,8 @@
 
         <activity android:name=".ui.activity.moreFuntion.X5VideoActivity"
                   android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name=".ui.activity.moreFuntion.FuliDetailActivity"/>
+        <activity android:name=".ui.activity.moreFuntion.CoordinatorLayoutPage.CoordinatorActivity"/>
 
     </application>
 

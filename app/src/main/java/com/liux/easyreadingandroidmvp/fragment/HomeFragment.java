@@ -18,6 +18,7 @@ import com.liux.easyreadingandroidmvp.utils.ToastUtil;
 import com.liux.easyreadingandroidmvp.view.FgHomeView;
 import com.liux.module.wxBean.ArticleSearchBean;
 import com.liux.module.wxBean.CategoriesBean;
+import com.orhanobut.logger.Logger;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadmoreListener;
@@ -86,6 +87,7 @@ public class HomeFragment extends BaseFragment implements FgHomeView {
 
     @Override
     protected void loadData() {
+        Logger.e("homeFragment");
         initRefreshData();
     }
 

@@ -12,12 +12,12 @@ import com.liux.easyreadingandroidmvp.adapter.WXPageAdapter;
 import com.liux.easyreadingandroidmvp.base.BaseFragment;
 import com.liux.easyreadingandroidmvp.customView.DividerItemDecoration;
 import com.liux.easyreadingandroidmvp.presenter.impl.FgPagePresenterImpl;
-import com.liux.easyreadingandroidmvp.ui.activity.WebViewActivity;
 import com.liux.easyreadingandroidmvp.ui.activity.X5WebView.X5WebViewActivity;
 import com.liux.easyreadingandroidmvp.utils.ToastUtil;
 import com.liux.easyreadingandroidmvp.view.FgPageView;
 import com.liux.module.wxBean.ArticleSearchBean;
 import com.liux.module.wxBean.CategoriesBean;
+import com.orhanobut.logger.Logger;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadmoreListener;
@@ -87,6 +87,7 @@ public class PageFragment extends BaseFragment implements FgPageView {
          * 若是为了节省流量，可以将initRefresh（）放到这里，删除initData()方法
          */
         initData();
+        Logger.e("pageFragment界面");
     }
 
     @Override

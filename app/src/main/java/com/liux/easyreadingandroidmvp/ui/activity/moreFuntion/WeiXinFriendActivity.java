@@ -1,16 +1,18 @@
 package com.liux.easyreadingandroidmvp.ui.activity.moreFuntion;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 
 import com.liux.easyreadingandroidmvp.R;
 import com.liux.easyreadingandroidmvp.base.BaseSwipeBackActivity;
 import com.liux.easyreadingandroidmvp.customView.ToolbarHelper;
+import com.liux.easyreadingandroidmvp.ui.activity.moreFuntion.CoordinatorLayoutPage.CoordinatorActivity;
 import com.liux.easyreadingandroidmvp.ui.activity.moreFuntion.pickImageActivity.WxDemoActivity;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -29,6 +31,8 @@ public class WeiXinFriendActivity extends BaseSwipeBackActivity {
     Button btnWeiXinPickImage;
     @BindView(R.id.btn_Other_PickImage)
     Button btnOtherPickImage;
+    @BindView(R.id.btn_Coordinator)
+    Button btnCoordinator;
 
     @Override
     protected void initToolbar(ToolbarHelper toolbarHelper) {
@@ -52,7 +56,7 @@ public class WeiXinFriendActivity extends BaseSwipeBackActivity {
     }
 
 
-    @OnClick({R.id.btn_WeiXin_PickImage, R.id.btn_Other_PickImage})
+    @OnClick({R.id.btn_WeiXin_PickImage, R.id.btn_Other_PickImage, R.id.btn_Coordinator})
     public void onViewClicked(View view) {
         Intent intent = new Intent();
         switch (view.getId()) {
@@ -62,6 +66,10 @@ public class WeiXinFriendActivity extends BaseSwipeBackActivity {
                 break;
             case R.id.btn_Other_PickImage:
 
+                break;
+            case R.id.btn_Coordinator:
+                intent.setClass(this,CoordinatorActivity.class);
+                startActivity(intent);
                 break;
         }
     }

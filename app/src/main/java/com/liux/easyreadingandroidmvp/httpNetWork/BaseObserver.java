@@ -115,7 +115,5 @@ public abstract class BaseObserver<T> implements Observer<BaseEntity<T>> {
 //        ProgressDialog.cancle();
     }
 
-    ;
-
 
 }

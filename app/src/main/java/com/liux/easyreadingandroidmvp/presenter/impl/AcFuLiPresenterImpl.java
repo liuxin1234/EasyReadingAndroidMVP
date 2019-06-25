@@ -50,17 +50,17 @@ public class AcFuLiPresenterImpl implements AcFuLiPresenter {
     public void loadFuLiData(int pageIndex) {
         mRetrofitService = RetrofitManager.getInstance(HostType.GANK_IO_DATA).getRetrofitService();
         mRetrofitService.getNewsList(ApiConstants.GANDK_IO_MEIZI, pageIndex)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new BaseGankObserver<List<ResultBean>>() {
-                    @Override
-                    protected void onSuccess(BaseBean<List<ResultBean>> listBaseBean) throws Exception {
-                        if (listBaseBean != null) {
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(new BaseGankObserver<List<ResultBean>>() {
+                        @Override
+                        protected void onSuccess(BaseBean<List<ResultBean>> listBaseBean) throws Exception {
+                            if (listBaseBean != null) {
                                 List<ResultBean> results = listBaseBean.getResults();
                                 GsonUtils.toJson(results);
                                 mAcFuLiView.loadFuLiData(results);
                             }
-                    }
+                        }
 
                     @Override
                     protected void onFailure(Throwable e, boolean isNetWorkError) throws Exception {

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <!--contentScrim="@color/white" 设置折叠之后的背景
+        layout_scrollFlags="scroll||snap" 设置滚动加吸附效果-->
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/white"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:layout_scrollFlags="scroll|snap">
+
+            <!--子布局设置折叠模式
+            layout_collapseMode="parallax"
+            有两种“pin”：固定模式，在折叠的时候最后固定在顶端；
+            “parallax”：视差模式，在折叠的时候会有个视差折叠的效果
+            layout_collapseParallaxMultiplier="0.7"：设置视差的系数，介于0.0-1.0之间-->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/icon_bg_head"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.7"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <ImageView
+                    android:id="@+id/img_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/ic_arrow_back"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/img_Head"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/icon_my_life_1"
+                        app:riv_corner_radius="50dp"
+                        app:riv_oval="true"
+                        android:layout_marginTop="40dp"
+                        android:scaleType="centerCrop"/>
+
+                    <TextView
+                        android:id="@+id/tv_Edit"
+                        android:layout_width="57dp"
+                        android:layout_height="24dp"
+                        android:text="编辑"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/colorPrimary"/>
+
+                    <TextView
+                        android:id="@+id/tv_Name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="明日之后"
+                        android:layout_marginTop="10dp"/>
+                    <TextView
+                        android:id="@+id/tv_Signature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="个性签名：废材 ~"
+                        android:textSize="12sp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"/>
+
+                </LinearLayout>
+            </FrameLayout>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/sliding_Tab_Layout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom"
+            android:background="@color/white"
+            app:tl_indicator_color="@color/colorPrimary"
+            app:tl_indicator_width="33dp"
+            app:tl_tab_space_equal="true"
+            app:tl_textBold="SELECT"
+            app:tl_textSelectColor="@color/colorPrimary"
+            app:tl_textUnselectColor="@color/colorGray"
+            app:tl_textsize="16sp">
+
+        </com.flyco.tablayout.SlidingTabLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/common_bg_color"
+        android:scrollbars="none"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    </android.support.v4.view.ViewPager>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="15dp"/>
+
+
+</android.support.design.widget.CoordinatorLayout>
