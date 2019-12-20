@@ -3,6 +3,8 @@ package com.liux.easyreadingandroidmvp.greenDao;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.liux.easyreadingandroidmvp.application.EasyReadApplication;
+import com.liux.easyreadingandroidmvp.greenDao.entity.DaoMaster;
+import com.liux.easyreadingandroidmvp.greenDao.entity.DaoSession;
 
 /**
  * Created by

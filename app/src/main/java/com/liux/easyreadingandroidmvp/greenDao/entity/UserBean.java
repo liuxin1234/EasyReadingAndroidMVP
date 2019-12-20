@@ -1,4 +1,4 @@
-package com.liux.easyreadingandroidmvp.greenDao;
+package com.liux.easyreadingandroidmvp.greenDao.entity;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
@@ -75,6 +75,6 @@ public class UserBean {
         this.sex = sex;
     }
 
-  
-    
+
+
 }

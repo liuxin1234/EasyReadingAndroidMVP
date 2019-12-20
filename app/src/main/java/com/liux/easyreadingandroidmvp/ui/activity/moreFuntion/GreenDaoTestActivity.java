@@ -12,8 +12,8 @@ import com.liux.easyreadingandroidmvp.adapter.GreenDaoUserAdapter;
 import com.liux.easyreadingandroidmvp.base.BaseSwipeBackActivity;
 import com.liux.easyreadingandroidmvp.customView.DividerItemDecoration;
 import com.liux.easyreadingandroidmvp.customView.ToolbarHelper;
-import com.liux.easyreadingandroidmvp.greenDao.UserBean;
-import com.liux.easyreadingandroidmvp.greenDao.UserDaoModify;
+import com.liux.easyreadingandroidmvp.greenDao.dao.UserDaoModify;
+import com.liux.easyreadingandroidmvp.greenDao.entity.UserBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,6 +94,7 @@ public class GreenDaoTestActivity extends BaseSwipeBackActivity {
             UserDaoModify.getInstance().deleteUserData(mUserBeanList.get(0));
             queryListData();
         }
+
     }
 
     private void updateData(){
@@ -129,6 +130,14 @@ public class GreenDaoTestActivity extends BaseSwipeBackActivity {
                 queryListData();
                 break;
         }
+    }
+
+    /**
+     * 关闭数据库
+     */
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
 }

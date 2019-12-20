@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.liux.easyreadingandroidmvp.R;
-import com.liux.easyreadingandroidmvp.greenDao.UserBean;
+import com.liux.easyreadingandroidmvp.greenDao.entity.UserBean;
 
 import java.util.List;
 

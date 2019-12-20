@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.liux.easyreadingandroidmvp.R;
@@ -13,6 +14,7 @@ import com.liux.easyreadingandroidmvp.base.BaseSwipeBackActivity;
 import com.liux.easyreadingandroidmvp.customView.ToolbarHelper;
 import com.liux.easyreadingandroidmvp.utils.DateUtils;
 import com.liux.easyreadingandroidmvp.utils.GsonUtils;
+import com.liux.easyreadingandroidmvp.widget.TopLayoutManager;
 import com.liux.module.historyTodayBean.historyBean;
 import com.mob.mobapi.API;
 import com.mob.mobapi.APICallback;
@@ -111,7 +113,8 @@ public class HistroyTodayActivity extends BaseSwipeBackActivity {
 
     private void initAdapter() {
         mHistoryTodayAdapter = new HistoryTodayAdapter(R.layout.item_layout_history_today, mResultBeen);
-        rvHistoryToday.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager manager = new TopLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        rvHistoryToday.setLayoutManager(manager);
         rvHistoryToday.setAdapter(mHistoryTodayAdapter);
         mHistoryTodayAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
@@ -119,6 +122,22 @@ public class HistroyTodayActivity extends BaseSwipeBackActivity {
                 Intent intent = new Intent(HistroyTodayActivity.this, HistoryDetailActivity.class);
                 intent.putExtra("dataList", (Serializable) mResultBeen.get(position));
                 startActivity(intent);
+            }
+        });
+        mHistoryTodayAdapter.setOnItemLongClickListener(new BaseQuickAdapter.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position) {
+                historyBean.ResultBean resultBean = mResultBeen.get(position);
+                mResultBeen.remove(position);
+                mHistoryTodayAdapter.notifyItemRemoved(position);
+                mHistoryTodayAdapter.notifyItemRangeChanged(0,mResultBeen.size()-position);
+
+                mResultBeen.add(0,resultBean);
+                mHistoryTodayAdapter.notifyItemInserted(0);
+                mHistoryTodayAdapter.notifyItemRangeChanged(0, mResultBeen.size());
+                Toast.makeText(getApplicationContext(),"置顶成功",Toast.LENGTH_SHORT).show();
+//                rvHistoryToday.smoothScrollToPosition(0); //这个置顶滑动有部分bug
+                return true;
             }
         });
     }

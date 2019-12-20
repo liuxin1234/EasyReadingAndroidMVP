@@ -1,4 +1,8 @@
-package com.liux.easyreadingandroidmvp.greenDao;
+package com.liux.easyreadingandroidmvp.greenDao.dao;
+
+import com.liux.easyreadingandroidmvp.greenDao.GreenDaoManager;
+import com.liux.easyreadingandroidmvp.greenDao.entity.UserBean;
+import com.liux.easyreadingandroidmvp.greenDao.entity.UserBeanDao;
 
 import org.greenrobot.greendao.query.Query;
 
@@ -172,7 +176,7 @@ public class UserDaoModify {
      * @param param
      * @return
      */
-    public List<UserBean> queryUserByParams(String where,String... param){
+    public List<UserBean> queryUserByParams(String where, String... param){
         return getUserBeanDao().queryRaw(where,param);
     }
 
